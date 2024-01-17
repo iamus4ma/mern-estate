@@ -2,11 +2,16 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import dotenv from "dotenv";
+
+
+dotenv.config();
 
 mongoose
-  .connect(
-    "mongodb+srv://iamus4ma:iamus4ma@mern-estate.znrq6s5.mongodb.net/mern-estate?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to MongoDB");
   })
