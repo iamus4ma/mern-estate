@@ -17,7 +17,6 @@ export default function SignIn() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -39,6 +38,7 @@ export default function SignIn() {
 
         return;
       }
+      console.log(formData, "formdata");
       dispatch(signInSuccess(data));
 
       navigate("/");
